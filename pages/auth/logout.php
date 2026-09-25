@@ -1,0 +1,18 @@
+<?php
+
+/*
+        --------------------------------------------
+        --                                        --
+        --               LOGOUT PAGE              --
+        --                                        --
+        --------------------------------------------
+*/
+
+$_SESSION = [];
+
+session_destroy();
+
+header('Location: index.php?page=login');
+exit;
+
+?>

@@ -1,0 +1,41 @@
+@font-face {
+    font-family: MontserratAlternates-Regular;
+    src: url(../assets/fonts/MontserratAlternates-Regular.ttf);
+}
+
+@font-face {
+    font-family: Inter_18pt-Medium;
+    src: url(../assets/fonts/Inter_18pt-Medium.ttf);
+}
+
+@font-face {
+    font-family: Inter_18pt-Light;
+    src: url(../assets/fonts/Inter_18pt-Light.ttf);
+}
+
+:root {
+    --light-color: rgb(233, 218, 184);
+    --black-color: rgb(16, 25, 15);
+    --purple-color: rgb(106, 43, 217);
+    --light-purple-color: rgb(199, 174, 221);
+    --green-fluo-color: rgb(182, 255, 63);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+h1,
+h2 {
+    font-family: MontserratAlternates-Regular;
+}
+
+p,
+label,
+input,
+button {
+    font-family: Inter_18pt-Light;
+}
