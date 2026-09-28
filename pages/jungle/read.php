@@ -46,13 +46,6 @@ foreach ($my_jungle as $jungle_plant) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['start_watering'])) {
         $last_watering = $_POST['start_watering'];
 
-        $sql =" INSERT INTO
-                    my_jungle(watered_date)
-                VALUES
-                    ($last_watering)";
-
-        $stmt = $pdo -> prepare($sql);
-
         $frequency = $jungle_plant['watering_frequency_autumn_winter'];
 
         $date = new DateTime($last_watering);
@@ -60,6 +53,13 @@ foreach ($my_jungle as $jungle_plant) {
         $jungle_plant['next_watering'] = $date -> format('d-m-Y');
 
         echo $jungle_plant['next_watering'] . " ";
+
+        $sql =" INSERT INTO
+                    my_jungle(watered_date)
+                VALUES
+                    ($next_watering)";
+
+        $stmt = $pdo -> prepare($sql);
     }
 }
 
@@ -92,29 +92,23 @@ foreach ($my_jungle as $jungle_plant) {
 
                 <div class="watering"><img src="assets/icons/watering_icon.png" alt="Icone d'une goutte d'eau" style="height: 15px;">Tous les <?= $plant['watering_frequency_spring_summer'] ?> à <?= $plant['watering_frequency_autumn_winter'] ?> jour(s)</div>
 
+                
                 <form action="" method="post">
                     <label for="start_watering">Dernier arrosage :</label>
+                    <!-- A CORRIGER  -->
+                    <input type="hidden" name="plant_id" value="<?= $plantId ?>">
                     <input type="date" name="start_watering" id="start_watering">
-
+                    
                     <button>Calculer</button>
                 </form>
 
                 <div>
-                    <?php if(isset($last_watering)) : ?>
-                        <p>Date précédente : <?= $last_watering ?></p>
-                        <p>Suivant : <?= $jungle_plant['next_watering'] ?></p>
-                    <?php endif ?>
-                </div>
-
-                <!-- <div class="next_watering">
                     <?php foreach ($my_jungle as $jungle_plant) : ?>
                         <?php if(isset($last_watering)) : ?>
-                            <?= $jungle_plant['next_watering'] ?>
+                            <p>Date précédente : <?= $last_watering ?></p>
                         <?php endif ?>
-                    <?php endforeach ?>
-                </div> -->
-                
-
+                    <!-- <?php endforeach ?> -->
+                </div>
             </article>
         <?php endforeach ?>
     </div>
