@@ -14,7 +14,7 @@ $sql = "SELECT
             my_jungle.[id] AS my_jungle_id,
             my_jungle.[location],
             my_jungle.[watered_date],
-            plant.[id] AS plant_id,
+            plant.[id] AS fk_plant,
             plant.[name],
             plant.[link],
             plant.[exposure],
@@ -40,7 +40,7 @@ $my_jungle = $stmt -> fetchAll();
 $next_watering = null;
 
 foreach ($my_jungle as $jungle_plant) {
-    $plantId = $jungle_plant['plant_id'] . " ";
+    $plantId = $jungle_plant['fk_plant'];
     echo $plantId . " : " ;
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['start_watering'])) {
@@ -50,16 +50,20 @@ foreach ($my_jungle as $jungle_plant) {
 
         $date = new DateTime($last_watering);
         $date -> modify("+ $frequency days");
-        $jungle_plant['next_watering'] = $date -> format('d-m-Y');
+        $next_watering = $date -> format('Y-m-d');
 
-        echo $jungle_plant['next_watering'] . " ";
+        echo $next_watering . " ";
 
-        $sql =" INSERT INTO
-                    my_jungle(watered_date)
-                VALUES
-                    ($next_watering)";
+        $sql =" UPDATE my_jungle
+                SET watered_date = ?
+                WHERE fk_plant = ?";
 
         $stmt = $pdo -> prepare($sql);
+        // A CORRIGER
+        $stmt -> execute([
+            $next_watering,
+            $plantId
+        ]);
     }
 }
 
