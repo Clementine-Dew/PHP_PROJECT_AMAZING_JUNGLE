@@ -70,10 +70,10 @@ if ($id !== false && $id !== null) {
         <a href="?page=family-details&amp;id=<?= $plant['fk_family'] ?>">
             <?= htmlspecialchars($plant['family_name']) ?>
         </a>
-        </dd>
+        </dd> -->
 
     </dl>
 
-    <a href="?page=plants" class="btn btn-back">Retour à la liste</a>
+    <a href="?page=plants" class="btn btn-back">  Retour à la liste</a>
 
 <?php endif ?>

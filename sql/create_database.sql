@@ -107,7 +107,7 @@ GO
 CREATE TABLE dbo.my_jungle (
     [id]                                    INT                 IDENTITY (1, 1)         NOT NULL,
     [location]                              NVARCHAR(50)        NULL,
-    [watered_date]                          DATETIME2           NOT NULL,
+    [watered_date]                          DATE                NULL,
     [fk_plant]                              INT                 NOT NULL,
     [fk_consumer]                           INT                 NOT NULL,
     CONSTRAINT PK_my_jungle PRIMARY KEY (id),
