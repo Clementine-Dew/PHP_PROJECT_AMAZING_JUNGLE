@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <br>
 <br>
-<div class="form_style">
+<div class="style">
     <form method="post">
         <h1>Se connecter</h1>
         <br>

@@ -175,7 +175,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 -->
 
 
-<div class="form_style">
+<div class="style">
     <form method="post" enctype="multipart/form-data">
     <h1>Modification d'une plante</h1>
         <div>

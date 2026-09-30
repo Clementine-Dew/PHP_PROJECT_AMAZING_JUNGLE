@@ -224,7 +224,7 @@ body {
         --------------------------------------------
 */
 
-.form_style {
+.style {
     width: 90%;
 
     margin-left: auto;
@@ -326,6 +326,23 @@ dl {
 
 table {
     font-family: MontserratAlternates-Regular;
+    width: 100%;
+
+    thead {
+        tr {
+            .element {
+                width: 50px;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            .element {
+                width: 50px;
+            }
+        }
+    }
 }
 
 
