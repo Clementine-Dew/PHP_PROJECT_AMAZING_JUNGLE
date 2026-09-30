@@ -89,6 +89,12 @@ $paths = [
         'roles' => ['user', 'admin'],
     ],
 
+    'plant-jungle-delete' => [
+        'file' => 'pages/jungle/delete.php',
+        'title' => 'REMOVE A PLANT',
+        'roles' => ['user', 'admin'],
+    ],
+
 /*
         --------------------------------------------
                      AUTHENTIFICATION 

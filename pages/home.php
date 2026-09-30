@@ -9,7 +9,7 @@
         <h1>Prendre soin de ses plantes, c'est prendre soin de son coin de monde</h1>
         <div class="row">
                 <div class="plant_homepage">
-                        <img src="assets/pictures/plant_homepage.jpg" alt="Plusieurs plantes à côté d'un fauteuil dans un salon" style="height: 500px;">
+                        <img src="assets/pictures/plant_homepage.jpg" alt="Plusieurs plantes à côté d'un fauteuil dans un salon" style="height: 370px;">
                 </div>
                 <div class="text_homepage">
                         <p>Tu as déjà regardé ton pothos avec culpabilité en te demandant depuis quand il n'avait pas vu une goutte d'eau ? Rassure-toi : ici, pas de jugement si ton pilea fait la tête. On t'aide juste à comprendre ce que tes plantes essayent de te dire.</p>

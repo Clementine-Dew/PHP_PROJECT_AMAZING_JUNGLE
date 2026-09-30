@@ -121,6 +121,7 @@ foreach ($my_jungle as $elem => $jungle_plant) {
                         <p>Prochain arrosage : <?= date('d/m/Y', strtotime($plant['next_watering'])) ?></p>
                     </div>
                 <?php endif ?>
+
             </article>
         <?php endforeach ?>
     </div>

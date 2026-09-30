@@ -49,31 +49,40 @@ if ($id !== false && $id !== null) {
                         TEMPLATE 
         --------------------------------------------
 -->
+
+<div class="container">
+    <?php if (!$plant) : ?>
+        <?php http_response_code(404); ?>
+            <h1>Plante introuvable</h1>
+            <p>Aucune plante ne correspond à l'id <?= $id ?>.</p>
+            
+    <?php else : ?>
+        <h1>Détails de <?= htmlspecialchars($plant["name"]) ?></h1>
+        <div class="row">
+            <div class="plant_homepage">
+                <img src="<?= $plant['link'] ?>"" alt="Photo de <?= $plant['name'] ?>" style="height: 450px;" class="details_picture">
+            </div>
         
-<?php if (!$plant) : ?>
-    <?php http_response_code(404); ?>
-    <h1>Plante introuvable</h1>
-    <p>Aucune plante ne correspond à l'id <?= $id ?>.</p>
-<?php else : ?>
-    <h1>Détails de <?= htmlspecialchars($plant["name"]) ?></h1>
+            <div class="text">
+                <dl>
+                    <dt>Famille :</dt>
+                    <dd>
+                    <a href="?page=family-details&amp;id=<?= $plant['fk_family'] ?>">
+                        <?= htmlspecialchars($plant['family_name']) ?>
+                    </a>
+                    </dd>
 
-    <dl>
-        <dt>Température minimum :</dt>
-        <dd><?= htmlspecialchars($plant['temperature_min'] ?? 'inconnue') ?></dd>
+                    <dt>Température :</dt>
+                    <dd>Entre <?= htmlspecialchars($plant['temperature_min'] ?? 'inconnue') ?> et <?= htmlspecialchars($plant['temperature_max'] ?? 'inconnue') ?> °C</dd>
 
-        <!-- <dt>Prix:</dt>
-        <dd><?= number_format($livre['prix'], 2, ',', ' ') ?> &euro;</dd>
+                    <dt>Exposition :</dt>
+                    <dd><?= htmlspecialchars($plant['exposure']) ?></dd>
+                    
 
+                </dl>
 
-        <dt>Famille :</dt>
-        <dd>
-        <a href="?page=family-details&amp;id=<?= $plant['fk_family'] ?>">
-            <?= htmlspecialchars($plant['family_name']) ?>
-        </a>
-        </dd> -->
-
-    </dl>
-
-    <a href="?page=plants" class="btn btn-back">  Retour à la liste</a>
-
-<?php endif ?>
+                <a href="?page=plants" class="btn btn-back">  Retour à la liste</a>
+            </div>
+    <?php endif ?>
+    </div>
+</div>
