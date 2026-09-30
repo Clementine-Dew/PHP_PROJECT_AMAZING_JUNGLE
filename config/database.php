@@ -9,8 +9,6 @@
 */
 
 $source = "sqlsrv";
-// $host = "LAPTOP-CLEMY\SQL_COURS_CLEM";
-// $host = "WAD-12\IF3";
 $host = "localhost";
 $dbname = "amazing_jungle";
 
